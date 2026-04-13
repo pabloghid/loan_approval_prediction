@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Approval</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #333; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input, select { width: 100%; padding: 6px; margin-top: 4px; box-sizing: border-box; }
+    button { margin-top: 20px; padding: 10px 24px; background: #2c7be5; color: white; border: none; cursor: pointer; font-size: 16px; }
+    button:hover { background: #1a5fb4; }
+    .result-box { margin-top: 30px; padding: 16px; border-radius: 6px; background: #f0f4ff; border: 1px solid #c0d0f0; }
+    .result-box h2 { margin: 0 0 12px; }
+    .details { font-size: 14px; color: #555; }
+    .details td { padding: 3px 12px 3px 0; }
+  </style>
+</head>
+<body>
+  <h1>Previsão de Aprovação de Empréstimo</h1>
+  <form method="POST">
+    <label>Gênero</label>
+    <select name="gender">
+      <option>Male</option><option>Female</option>
+    </select>
+
+    <label>Casado(a)</label>
+    <select name="married">
+      <option>Yes</option><option>No</option>
+    </select>
+
+    <label>Dependentes</label>
+    <select name="dependents">
+      <option>0</option><option>1</option><option>2</option><option>3+</option>
+    </select>
+
+    <label>Escolaridade</label>
+    <select name="education">
+      <option>Graduate</option><option>Not Graduate</option>
+    </select>
+
+    <label>Autônomo</label>
+    <select name="self_employed">
+      <option>No</option><option>Yes</option>
+    </select>
+
+    <label>Renda do Solicitante</label>
+    <input type="number" name="applicant_income" value="5000" min="0">
+
+    <label>Renda do Co-solicitante</label>
+    <input type="number" name="coapplicant_income" value="0" min="0">
+
+    <label>Valor do Empréstimo (em milhares)</label>
+    <input type="number" name="loan_amount" value="150" min="1">
+
+    <label>Prazo (meses)</label>
+    <select name="loan_amount_term">
+      <option>360</option><option>180</option><option>120</option><option>60</option>
+    </select>
+
+    <label>Histórico de Crédito</label>
+    <select name="credit_history">
+      <option value="1">Bom (1)</option><option value="0">Ruim (0)</option>
+    </select>
+
+    <label>Área do Imóvel</label>
+    <select name="property_area">
+      <option>Urban</option><option>Semiurban</option><option>Rural</option>
+    </select>
+
+    <button type="submit">Prever</button>
+  </form>
+
+  {% if result %}
+  <div class="result-box">
+    <h2>Resultado: {{ result }}</h2>
+    <div class="details">
+      <table>
+        {% for key, value in inputs.items() %}
+        <tr><td><b>{{ key }}</b></td><td>{{ value[0] if value is iterable and value is not string else value }}</td></tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>
