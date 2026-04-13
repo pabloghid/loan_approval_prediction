@@ -21,27 +21,34 @@
   <form method="POST">
     <label>Gênero</label>
     <select name="gender">
-      <option>Male</option><option>Female</option>
+      <option value="Male">Masculino</option>
+      <option value="Female">Feminino</option>
     </select>
 
     <label>Casado(a)</label>
     <select name="married">
-      <option>Yes</option><option>No</option>
+      <option value="Yes">Sim</option>
+      <option value="No">Não</option>
     </select>
 
     <label>Dependentes</label>
     <select name="dependents">
-      <option>0</option><option>1</option><option>2</option><option>3+</option>
+      <option value="0">Nenhum</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3+">3 ou mais</option>
     </select>
 
     <label>Escolaridade</label>
     <select name="education">
-      <option>Graduate</option><option>Not Graduate</option>
+      <option value="Graduate">Graduado</option>
+      <option value="Not Graduate">Não Graduado</option>
     </select>
 
     <label>Autônomo</label>
     <select name="self_employed">
-      <option>No</option><option>Yes</option>
+      <option value="No">Não</option>
+      <option value="Yes">Sim</option>
     </select>
 
     <label>Renda do Solicitante</label>
@@ -55,17 +62,23 @@
 
     <label>Prazo (meses)</label>
     <select name="loan_amount_term">
-      <option>360</option><option>180</option><option>120</option><option>60</option>
+      <option value="360">360 meses</option>
+      <option value="180">180 meses</option>
+      <option value="120">120 meses</option>
+      <option value="60">60 meses</option>
     </select>
 
     <label>Histórico de Crédito</label>
     <select name="credit_history">
-      <option value="1">Bom (1)</option><option value="0">Ruim (0)</option>
+      <option value="1">Bom</option>
+      <option value="0">Ruim</option>
     </select>
 
     <label>Área do Imóvel</label>
     <select name="property_area">
-      <option>Urban</option><option>Semiurban</option><option>Rural</option>
+      <option value="Urban">Urbana</option>
+      <option value="Semiurban">Semiurbana</option>
+      <option value="Rural">Rural</option>
     </select>
 
     <button type="submit">Prever</button>
